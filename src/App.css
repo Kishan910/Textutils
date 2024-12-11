@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+.circle {
+  width: 16px;          
+  height: 16px;         
+  border-radius: 50%;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.blueTheme{
+  background-color: blue;
+  color:"white";
+}
+.redTheme{
+  background-color: red;
+  color:"white";
+}
+.greenTheme{
+  background-color: green;
+  color:white;
+}
