@@ -34,16 +34,16 @@ export default function Textform(props) {
                     <h3 className={`text-${props.mode==="dark"?"light":"dark"}`}>{props.heading}</h3>
                     <textarea className="form-control" style={{backgroundColor:props.mode==="dark"?"#323435":"white",color:props.mode==="dark"?"white":"black"}} value={text} onChange={handleOnChange} id="txtArea" rows="9"></textarea>
                 </div>
-                <button className="btn btn-primary mx-1 my-1" onClick={handleUppercase}>Convert to Uppercase</button>
-                <button className="btn btn-primary mx-1 my-1" onClick={handleLowercase}>Convert to Lowercase</button>
-                <button className="btn btn-primary mx-1 my-1" onClick={handleRemoveExtraSpace}>Remove ExtraSpace</button>
-                <button className="btn btn-primary mx-1 my-1" onClick={handleClearText}>Clear text</button>
-                <button className="btn btn-primary mx-1 my-1" onClick={handleCopyText}>Copy text</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleUppercase}>Convert to Uppercase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleLowercase}>Convert to Lowercase</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleRemoveExtraSpace}>Remove ExtraSpace</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearText}>Clear text</button>
+                <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleCopyText}>Copy text</button>
             </div>
             <div className="container my-3">
                 <h3 className={`text-${props.mode==="dark"?"light":"dark"}`}>Your text summary</h3>
-                <p className={`text-${props.mode==="dark"?"light":"dark"}`}>{text.split(" ").filter((ele)=>{return ele.length!==0}).length} Words and {text.length} characters</p>
-                <p className={`text-${props.mode==="dark"?"light":"dark"}`}>{0.008 * text.split(" ").filter((ele)=>{return ele.length!==0}).length} Minutes to read</p>
+                <p className={`text-${props.mode==="dark"?"light":"dark"}`}>{text.split(/\s+/).filter((ele)=>{return ele.length!==0}).length} Words and {text.length} characters</p>
+                <p className={`text-${props.mode==="dark"?"light":"dark"}`}>{0.008 * text.split(/\s+/).filter((ele)=>{return ele.length!==0}).length} Minutes to read</p>
                 <h3 className={`text-${props.mode==="dark"?"light":"dark"}`}>Preview</h3>
                 <p className={`text-${props.mode==="dark"?"light":"dark"}`}>{text}</p>
             </div>
